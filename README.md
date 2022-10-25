@@ -15,8 +15,8 @@ type TypeAbbreviationTuple = int * int
 
 // example
 let typeAbbreviationTuple = TypeAbbreviationTuple(1, 2)
-    let first = fst(typeAbbreviationTuple)
-    let second = snd(typeAbbreviationTuple)
+    let first = fst typeAbbreviationTuple
+    let second = snd typeAbbreviationTuple
     first |> should equal 1
     second|> should equal 2
 ```

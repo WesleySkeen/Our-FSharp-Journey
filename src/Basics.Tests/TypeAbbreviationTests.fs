@@ -13,7 +13,7 @@ let ``Test TypeAbbreviation as a function`` () =
 [<Fact>]
 let ``Test TypeAbbreviationTuple as a tuple`` () =    
     let typeAbbreviationTuple = TypeAbbreviationTuple(1, 2)
-    let first = fst(typeAbbreviationTuple)
-    let second = snd(typeAbbreviationTuple)
+    let first = fst typeAbbreviationTuple
+    let second = snd typeAbbreviationTuple
     first |> should equal 1
     second|> should equal 2
