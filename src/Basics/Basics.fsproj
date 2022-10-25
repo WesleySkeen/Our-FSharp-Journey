@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Functions.fs" />
+    <Compile Include="TypeAbbreviations.fs" />
   </ItemGroup>
 
 </Project>

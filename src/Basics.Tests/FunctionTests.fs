@@ -1,6 +1,5 @@
-module Tests
+module Tests.FunctionTests
 
-open System
 open FsUnit
 open Xunit
 open Basics.Functions
