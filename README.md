@@ -26,10 +26,26 @@ Some less obvious things with inputs / outputs
 // This specifies that the first 2 integers are parameters and the last int is what is returned
 type TypeAbbreviationFunction = int->int->int
 
+
 // example
 let typeAbbreviationFunction:TypeAbbreviationFunction = fun a b -> a + b
     let result = typeAbbreviationFunction 10 20
     result |> should equal 30
+```
+### Tuples
+If you want to catch all exceptions from a parsing. **Maybe this works in other contexts??**
+
+```f#
+let tryParseStringToInt32 intStr =
+   try
+      let i = System.Int32.Parse intStr
+      true,i
+   with _ -> false,0 // this catches the exception and returns these values
+       
+let result = tryParseStringToInt32 "abc"
+let first = fst result // this will be false
+let second = snd result // this will be 0
+
 ```
 
 ### Run tests
