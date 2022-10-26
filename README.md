@@ -47,6 +47,23 @@ let first = fst result // this will be false
 let second = snd result // this will be 0
 
 ```
+### Records
+We can instantiate a `Record` without having to include its type
+```f#
+type Person = { First: string; Second: string }
+let person = { First="Wes"; Second="Skeen" }
+let typeName = person.GetType().Name // "Person"
+```
+With this approach we need to be aware that we can run into an issue 
+if we have the same labels in multiple types. The compiler will use the last type defined
+
+```f#
+type Car1 = { NumberOfWheels: int;}
+type Car2 = { NumberOfWheels: int;}
+
+let car = { NumberOfWheels=4 }
+let typeName = car.GetType().Name // "Car2"
+```
 
 ### Run tests
 ```shell
