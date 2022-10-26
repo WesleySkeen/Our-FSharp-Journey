@@ -20,3 +20,13 @@ let ``'tryParse' should return an in-valid result`` () =
     let second = snd result
     first |> should equal false
     second|> should equal 0 // this is the default int returned if validation fails
+    
+[<Theory>]
+[<InlineData("test", 1, 4)>]
+[<InlineData("test test", 2, 8)>]
+let ``'wordAndLetterCount' should return expected letter and word count`` (sentence, wordCount, letterCount) =    
+    let result = wordAndLetterCount sentence
+    let first = fst result // word count
+    let second = snd result // letter count
+    first |> should equal wordCount
+    second|> should equal letterCount
