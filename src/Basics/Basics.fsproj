@@ -10,6 +10,7 @@
     <Compile Include="Functions.fs" />
     <Compile Include="Tuples.fs" />
     <Compile Include="TypeAbbreviations.fs" />
+    <Compile Include="Records.fs" />
   </ItemGroup>
 
 </Project>
