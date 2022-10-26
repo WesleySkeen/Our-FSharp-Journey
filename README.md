@@ -74,8 +74,21 @@ module Module2 = type Shape = { NumberOfSides: int }
 
 let square = { Module1.NumberOfSides=4 }
 let pentagon = { Module2.NumberOfSides=5 }
-let typeName = square.GetType().Name // "Shape"
-let typeName = pentagon.GetType().Name // "Shape"
+let typeName1 = square.GetType().Name // "Shape"
+let typeName2 = pentagon.GetType().Name // "Shape"
+```
+
+keep in mind that a function return type can also be inferred
+```f#
+type TryParseResult = {Success:bool; Value:int}
+let tryParseStringToInt32WithRecords intStr =
+  try
+    let i = System.Int32.Parse intStr
+    {Success=true;Value=i}
+  with _ -> {Success=false;Value=0}
+  
+let result = tryParseStringToInt32WithRecords "99"
+let typeName = result.GetType().Name // "TryParseResult"
 ```
 
 ### Run tests
