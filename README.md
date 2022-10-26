@@ -51,6 +51,7 @@ let second = snd result // this will be 0
 We can instantiate a `Record` without having to include its type
 ```f#
 type Person = { First: string; Second: string }
+
 let person = { First="Wes"; Second="Skeen" }
 let typeName = person.GetType().Name // "Person"
 ```
@@ -63,6 +64,18 @@ type Car2 = { NumberOfWheels: int;}
 
 let car = { NumberOfWheels=4 }
 let typeName = car.GetType().Name // "Car2"
+```
+
+If we want to get around this we could separate our objects using modules
+
+```f#
+module Module1 = type Shape = { NumberOfSides: int }
+module Module2 = type Shape = { NumberOfSides: int }
+
+let square = { Module1.NumberOfSides=4 }
+let pentagon = { Module2.NumberOfSides=5 }
+let typeName = square.GetType().Name // "Shape"
+let typeName = pentagon.GetType().Name // "Shape"
 ```
 
 ### Run tests
