@@ -101,3 +101,5 @@ let typeName = result.GetType().Name // "TryParseResult"
 - [F# for Fun and Profit](https://fsharpforfunandprofit.com/posts/type-abbreviations/)
 
 ### Contributors
+- [WesleySkeen](https://github.com/WesleySkeen)
+- [macfma01](https://www.github.com/macfma01)
