@@ -15,10 +15,8 @@ type TypeAbbreviationTuple = int * int
 
 // example
 let typeAbbreviationTuple = TypeAbbreviationTuple(1, 2)
-    let first = fst typeAbbreviationTuple
-    let second = snd typeAbbreviationTuple
-    first |> should equal 1
-    second|> should equal 2
+let first = fst typeAbbreviationTuple // 1
+let second = snd typeAbbreviationTuple // 2    
 ```
 
 Some less obvious things with inputs / outputs
@@ -29,8 +27,7 @@ type TypeAbbreviationFunction = int->int->int
 
 // example
 let typeAbbreviationFunction:TypeAbbreviationFunction = fun a b -> a + b
-    let result = typeAbbreviationFunction 10 20
-    result |> should equal 30
+let result = typeAbbreviationFunction 10 20 // 30
 ```
 ### Tuples
 If you want to catch all exceptions from a parsing. **Maybe this works in other contexts??**
