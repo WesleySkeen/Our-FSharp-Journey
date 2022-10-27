@@ -1,5 +1,5 @@
-# My-FSharp-Journey
-Playing with F# to get to grips with it
+# Our-FSharp-Journey
+Recently we were tasked with migrating a c# project code to f#. The code in question is some ms Orleans grains. The idea of this repo is to document findings and useful things we learn along the way.
 
 *This doc will be a WIP and will expand as my journey goes on*
 
@@ -99,3 +99,5 @@ let typeName = result.GetType().Name // "TryParseResult"
 ### References
 
 - [F# for Fun and Profit](https://fsharpforfunandprofit.com/posts/type-abbreviations/)
+
+### Contributors
