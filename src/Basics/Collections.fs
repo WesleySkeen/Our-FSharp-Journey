@@ -54,3 +54,38 @@
 
 |> List.head
 // ("John", 15)
+
+
+type Result =
+    { HomeTeam : string; HomeGoals : int
+      AwayTeam : string; AwayGoals : int }
+let create home hg away ag =
+    { HomeTeam = home; HomeGoals = hg
+      AwayTeam = away; AwayGoals = ag }
+let results = [
+    create "Messiville" 1 "Ronaldo City" 2
+    create "Messiville" 1 "Bale Town" 3
+    create "Ronaldo City" 2 "Bale Town" 3
+    create "Bale Town" 2 "Messiville" 1
+]
+
+// Find the team scored the most goals... 
+let mostMatches =
+    results
+    |> List.collect (fun rslt -> [(rslt.HomeTeam, rslt.HomeGoals); (rslt.AwayTeam, rslt.AwayGoals)])
+    // [("Messiville", 1); ("Ronaldo City", 2); ("Messiville", 1); ("Bale Town", 3);
+    // ("Ronaldo City", 2); ("Bale Town", 3); ("Bale Town", 2); ("Messiville", 1)]
+    
+    |> List.groupBy fst
+    // [("Messiville", [("Messiville", 1); ("Messiville", 1); ("Messiville", 1)]);
+    //  ("Ronaldo City", [("Ronaldo City", 2); ("Ronaldo City", 2)]);
+    //  ("Bale Town", [("Bale Town", 3); ("Bale Town", 3); ("Bale Town", 2)])]
+    
+    |> List.map (fun (grp, lst) -> (grp, lst |> List.sumBy snd))
+    // [("Messiville", 3); ("Ronaldo City", 4); ("Bale Town", 8)]
+    
+    |> List.sortByDescending snd
+    // [("Bale Town", 8); ("Ronaldo City", 4); ("Messiville", 3)]
+    
+    |> List.head
+    // ("Bale Town", 8)
