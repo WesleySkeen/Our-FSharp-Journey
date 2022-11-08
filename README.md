@@ -88,6 +88,14 @@ let result = tryParseStringToInt32WithRecords "99"
 let typeName = result.GetType().Name // "TryParseResult"
 ```
 
+### Dynamic
+To accept a dynamic object as a parameter you can use `'`
+```f#
+let functionWithDynamicProperty 
+    (dynamicProperty: 'a) : string 
+    JsonConvert.SerializeObject dynamicProperty
+```
+
 ### Run tests
 ```shell
 > dotnet test src/Basics.Tests
